@@ -1,15 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rescaler : MonoBehaviour
 {
     private List<GameObject> _ingredientsInBlender;
-    void Start()
+
+    private void Start()
     {
         _ingredientsInBlender = new List<GameObject>();
     }
+    
     public List<GameObject> GetIngredients()
     {
         List<GameObject> ingredientObjects = new List<GameObject>();
@@ -19,18 +20,19 @@ public class Rescaler : MonoBehaviour
         }
         return ingredientObjects;
     }
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ingredient"))
-        {
-            if (!_ingredientsInBlender.Contains(other.gameObject))
-            {
-                if(_ingredientsInBlender.Count>0)
-                Rescale();
-                _ingredientsInBlender.Add(other.gameObject);
-            }
-        }
+        if (!other.CompareTag("Ingredient")) return;
+
+        if (_ingredientsInBlender.Contains(other.gameObject)) return;
+        
+        if(_ingredientsInBlender.Count>0)
+            Rescale();
+        
+        _ingredientsInBlender.Add(other.gameObject);
     }
+    
     private void Rescale()
     {
         double scale = Math.Pow(1f / (_ingredientsInBlender.Count), 1.0f / 4f);

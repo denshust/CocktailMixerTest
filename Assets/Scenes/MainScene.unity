@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f856cce9c00322b4b83bd8fccce1b5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rescaler: {fileID: 389180255}
+  _rescaler: {fileID: 389180255}
 --- !u!114 &389180258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,6 +1596,7 @@ MonoBehaviour:
   _mixer: {fileID: 389180257}
   _restart: {fileID: 194143473}
   _nextLevel: {fileID: 425837107}
+  _liquidMeshRenderer: {fileID: 1739845908}
 --- !u!4 &393705830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8497339350385942286, guid: 8677ccb988fc6784881cb6a52a9ea166, type: 3}
@@ -4217,8 +4218,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966883857}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1658219576629523640, guid: 261fa17ac8ca04046a4916ef4fc7b52f, type: 3}
@@ -5870,9 +5871,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900232456}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+      - m_Target: {fileID: 966883857}
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 4890494695829640184, guid: c0b7098eccdf08147961a86f7ba63421, type: 3}
@@ -7282,9 +7283,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900232456}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+      - m_Target: {fileID: 966883857}
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1756963091051023857, guid: 03f0c9c0edad8134c9bac3cb8ae15930, type: 3}
@@ -9457,6 +9458,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e68cfcc7beb4ba14cb1f5908d2832a6a, type: 3}
   m_PrefabInstance: {fileID: 730632959}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1739845908 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e68cfcc7beb4ba14cb1f5908d2832a6a, type: 3}
+  m_PrefabInstance: {fileID: 730632959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1739845910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e68cfcc7beb4ba14cb1f5908d2832a6a, type: 3}
@@ -11552,8 +11558,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966883857}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 6668073216085213967, guid: 23ff3bb53fae86242bbca0bbf231099d, type: 3}
@@ -11775,8 +11781,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966883857}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 6953664809496357801, guid: a5e4630f865eddb41b6bbeb845594cfd, type: 3}
@@ -11950,8 +11956,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 966883857}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 9122514605837973219, guid: 8f6705328851e9b42ae7094ad2cf43f9, type: 3}
@@ -12121,9 +12127,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900232456}
-        m_TargetAssemblyTypeName: BezierTest, Assembly-CSharp
-        m_MethodName: MoveIngredien
+      - m_Target: {fileID: 966883857}
+        m_TargetAssemblyTypeName: IngredientMover, Assembly-CSharp
+        m_MethodName: MoveIngredient
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 6732275452250040931, guid: d0c8f43338177ed419aca86e0a359853, type: 3}
