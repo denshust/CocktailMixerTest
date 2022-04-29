@@ -1,27 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelSettings : MonoBehaviour
 {
-    [SerializeField] private  Order _order;
-    [SerializeField] private  GameObject[] _ingredients;
-    [SerializeField] private  GameObject[] _ingredientButtons;
+    [SerializeField] private Order _order;
+    [SerializeField] private GameObject[] _ingredients;
+    [SerializeField] private GameObject[] _ingredientButtons;
     private List<GameObject> _activeIngredients;
-    enum Ingredient { Apple, Banana, Cherries, Cucumber, Eggplant, Orange, Tomato };
-    void Activate(int index)
-    {
-        _ingredientButtons[index].SetActive(true);
-        _activeIngredients.Add(_ingredients[index]);
-    }
-    void Start()
+    private enum Ingredient { Apple, Banana, Cherries, Cucumber, Eggplant, Orange, Tomato };
+
+    private void Start()
     {
         foreach (var button in _ingredientButtons)
         {
             button.SetActive(false);
         }
         _activeIngredients = new List<GameObject>();
-        switch (Level.levelIndex)
+        switch (Level.LevelIndex)
         {
             case 0:
                 Activate((int)Ingredient.Apple);
@@ -43,5 +38,11 @@ public class LevelSettings : MonoBehaviour
             Debug.Log(item.name);
         }
         _order.SetOrder(_activeIngredients.ToArray());
+    }
+
+    private void Activate(int index)
+    {
+        _ingredientButtons[index].SetActive(true);
+        _activeIngredients.Add(_ingredients[index]);
     }
 }

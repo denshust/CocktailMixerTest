@@ -1,32 +1,37 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Mixer : MonoBehaviour
 {
-    private List<GameObject> ingredientsInBlender;
-    [SerializeField] private Rescaler rescaler;
+    [SerializeField] private Rescaler _rescaler;
+    private List<GameObject> _ingredientsInBlender;
+    
     public void ClearBlender()
     {
-        foreach (var item in ingredientsInBlender)
+        foreach (var item in _ingredientsInBlender)
         {
             Destroy(item.gameObject);
         }
     }
+    
     public Color GetLocalMix()
     {
-        ingredientsInBlender = rescaler.GetIngredients();
-        return Mix(ingredientsInBlender);
+        _ingredientsInBlender = _rescaler.GetIngredients();
+        var mixColor = Mix(_ingredientsInBlender);
+        return mixColor;
     }
-    public Color Mix(List<GameObject> ingredsToMix)
+    
+    public Color Mix(List<GameObject> ingredientsToMix)
     {
         Vector3 colorSum = Vector3.zero;
-        foreach (var ingredient in ingredsToMix)
+        foreach (var ingredient in ingredientsToMix)
         {
-            Color ingColor = ingredient.GetComponent<Ingredient>().ingredientColor;
-            colorSum += new Vector3(ingColor.r, ingColor.g, ingColor.b);
+            Color ingredientColor = ingredient.GetComponent<Ingredient>().ingredientColor;
+            colorSum += new Vector3(ingredientColor.r, ingredientColor.g, ingredientColor.b);
         }
-        return new Color(colorSum.x / ingredsToMix.Count, colorSum.y / ingredsToMix.Count, colorSum.z / ingredsToMix.Count);
+
+        var ingredientsCount = ingredientsToMix.Count;
+        var resultingColor = new Color(colorSum.x / ingredientsCount, colorSum.y / ingredientsCount, colorSum.z / ingredientsCount);
+        return resultingColor;
     }
 }
